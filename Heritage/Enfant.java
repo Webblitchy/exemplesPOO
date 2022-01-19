@@ -12,6 +12,11 @@ public class Enfant extends Parent {
         return infos;
     }
 
+    // Implémente la fonction abstraite (héritée de parent)
+    public boolean peutVoter() {
+        return false;
+    }
+
     // Constructeur
     Enfant(String prenom, String nom, int age, Parent p1, Parent p2) {
         // créé le parent

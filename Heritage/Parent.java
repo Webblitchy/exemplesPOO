@@ -1,6 +1,6 @@
 package Heritage;
 
-public class Parent {
+public class Parent extends Suisse{
     // attributs
     private String nom;
     private String prenom;
@@ -10,6 +10,7 @@ public class Parent {
     public int age(){
         return 2022 - annéeNaissance;
     }
+
 
     // méthode publique
     public String info(){
@@ -21,6 +22,12 @@ public class Parent {
         sb.append("\nage : ");
         sb.append(age());
         return sb.toString();
+    }
+
+
+    // Implémente la fonction abstraite
+    public boolean peutVoter() {
+        return true;
     }
 
 
