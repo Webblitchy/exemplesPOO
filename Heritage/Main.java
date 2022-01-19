@@ -19,5 +19,9 @@ public class Main {
         // appel de la méthode redéfinie dans enfant
         System.out.println(fils.info());
 
+        System.out.println("---------------------------------------");
+
+        // appel de la fonction de la classe abstraite
+        pere.chanteHymne();
     }
 }
