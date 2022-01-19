@@ -26,6 +26,7 @@ public class Parent extends Suisse{
 
 
     // Implémente la fonction abstraite
+    @Override
     public boolean peutVoter() {
         return true;
     }

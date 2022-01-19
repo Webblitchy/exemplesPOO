@@ -6,6 +6,7 @@ public class Enfant extends Parent {
     Parent parent2;
 
     // méthode redéfinie
+    @Override
     public String info(){
         String infos = super.info();
         infos += "\n\n\tParents : \n" + parent1.info() + "\n" + parent2.info();
@@ -13,6 +14,7 @@ public class Enfant extends Parent {
     }
 
     // Implémente la fonction abstraite (héritée de parent)
+
     public boolean peutVoter() {
         return false;
     }
