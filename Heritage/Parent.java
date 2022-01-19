@@ -4,11 +4,11 @@ public class Parent extends Suisse{
     // attributs
     private String nom;
     private String prenom;
-    private int annéeNaissance;
+    private int anneeNaissance;
 
     // getter
     public int age(){
-        return 2022 - annéeNaissance;
+        return 2022 - anneeNaissance;
     }
 
 
@@ -32,10 +32,10 @@ public class Parent extends Suisse{
 
 
     // Constructeur
-    Parent(String prenom, String nom, int annéeNaissance){
+    Parent(String prenom, String nom, int anneeNaissance){
         this.prenom = prenom;
         this.nom = nom;
-        this.annéeNaissance = annéeNaissance;
+        this.anneeNaissance = anneeNaissance;
     }
 }
 
