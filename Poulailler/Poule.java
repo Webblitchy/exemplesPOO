@@ -1,7 +1,7 @@
 package Poulailler;
 
 public class Poule {
-    private String nom; // Nom de la poule
+    private final String nom; // Nom de la poule
     private Integer nbPontes = 0; // Nombre d’oeufs pondus
 
     public Poule(String s) {
