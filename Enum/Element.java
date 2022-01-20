@@ -2,13 +2,15 @@ package Enum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Element {
-    final int id;
-    final String nom;
+    private final int id;
+    private final String nom;
+    private static int count = 0;
 
-    public Element(int id, String nom) {
-        this.id = id;
+    public Element(String nom) {
+        this.id = count++;
         this.nom = nom;
     }
 
@@ -20,11 +22,11 @@ public class Element {
         ));
     }
 
-    public static Element fer = new Element(1, "fer");
+    public static Element fer = new Element("fer");
 
-    public static Element carbone = new Element(2, "carbone");
+    public static Element carbone = new Element("carbone");
 
-    public static Element mercure = new Element(3, "mercure");
+    public static Element mercure = new Element("mercure");
 
     @Override
     public String toString() {
@@ -35,14 +37,12 @@ public class Element {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Element)) return false;
-
         Element element = (Element) o;
-
-        return id == element.id && nom.equals(element.nom);
+        return id == element.id && Objects.equals(nom, element.nom);
     }
 
     @Override
     public int hashCode() {
-        return id + (nom != null ? nom.hashCode() : 0);
+        return Objects.hash(id, nom);
     }
 }
