@@ -9,17 +9,20 @@ class Element {
 
     public static Element
             fer = new Element("fer"),
-            carbone = new Element("carbone"),mercure = new Element("mercure");
+            carbone = new Element("carbone"),
+            mercure = new Element("mercure");
 
-    private Element(String nom){
+    private Element(String nom) {
         this.nom = nom;
         this.id = ++count;
     }
-    public String toString(){
+
+    public String toString() {
         return nom + "(#" + id + ")";
     }
-    public static Element[] values(){
-        return new Element[] {fer, carbone, mercure};
+
+    public static Element[] values() {
+        return new Element[]{fer, carbone, mercure};
     }
 
 }
@@ -27,7 +30,7 @@ class Element {
 abstract class Extracteur {
     private int id;
 
-    public Extracteur(int id){
+    public Extracteur(int id) {
         this.id = id;
     }
 
@@ -44,10 +47,10 @@ class Planete {
     private Element[] elements;
     private int nbrSondes;
 
-    public Planete(String nom, Element... elements){
+    public Planete(String nom, Element... elements) {
         this.nom = nom;
         this.elements = new Element[elements.length];
-        for(int i = 0; i < elements.length; ++i){  //on veut copier le tableau ici.
+        for (int i = 0; i < elements.length; ++i) {  //on veut copier le tableau ici.
             this.elements[i] = elements[i];
             //this.elements = elements.clone(); //marche aussi.
         }
@@ -58,26 +61,27 @@ class Planete {
     }
 
     public boolean contient(Element element) {
-        for(Element e : elements){
-            if(e == element){ //equals serait faux. On veut juste tester la référence.
+        for (Element e : elements) {
+            if (e == element) { //equals serait faux. On veut juste tester la référence.
                 return true;
             }
         }
         return false;
     }
 
-    public Extracteur construireSonde(Element element){ //vu que chaque extracteur est spécifique à la planète
+    public Extracteur construireSonde(Element element) { //vu que chaque extracteur est spécifique à la planète
         //on a définir une classe interne.
-        Extracteur e = new Extracteur(++nbrSondes){
-            public String nom(){
+        Extracteur e = new Extracteur(++nbrSondes) {
+            public String nom() {
                 return Planete.this.nom() + "-" + super.nom();
             }
-            public Element extraire(){ //pour la beauté du geste le prof fait de la covariance. On était pas obligé.
+
+            public Element extraire() { //pour la beauté du geste le prof fait de la covariance. On était pas obligé.
                 System.out.print(nom() + " recherche " + element + "...");
-                if(contient(element)){
+                if (contient(element)) {
                     System.out.println(" extrait!");
                     return element;
-                }else{
+                } else {
                     System.out.println(" inconnu!");
                     return null;
                 }
