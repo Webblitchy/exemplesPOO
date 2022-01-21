@@ -4,7 +4,7 @@ public class DisplayFactory {
     DisplayFactory(){
     }
     public DisplayElement generateNewDisplay(){
-        //retourn une class Anonyme qui implémente DisplayElement
+        //retourne une class Anonyme qui implémente DisplayElement
         return new DisplayElement (){
             @Override
             public void display() {

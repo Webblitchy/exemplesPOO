@@ -58,8 +58,8 @@ public class WeatherData implements Subject {
     @Override
     public void notifyObservers() {
         //on envoie les données aux personnes qui sont enregistrées
-        for(int i = 0; i <  observers.size(); ++ i){
-            observers.get(i).update(getTemperature(), getHumidity(), getPressure());
+        for (Observer observer : observers) {
+            observer.update(getTemperature(), getHumidity(), getPressure());
         }
     }
 }
